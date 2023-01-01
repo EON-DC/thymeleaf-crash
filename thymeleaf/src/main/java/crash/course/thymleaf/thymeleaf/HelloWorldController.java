@@ -46,4 +46,18 @@ public class HelloWorldController {
         model.addAttribute("users", users);
         return "if-unless";
     }
+
+    @GetMapping("/switch")
+    public String switch_case(Model model) {
+        User admin =  new User("John", "John@email.com", "ADMIN");
+        User mark = new User("Mark", "Mark@email.com", "USER");
+        User crown = new User("Bill", "Bill@email.com", "CROWN");
+        User unknown = new User("Bill", "Bill@email.com", "UNKNOWN");
+//        model.addAttribute("user", admin);
+//         model.addAttribute("user", mark);
+//        model.addAttribute("user", crown);
+        model.addAttribute("user", unknown);
+        return "switch-case";
+
+    }
 }
