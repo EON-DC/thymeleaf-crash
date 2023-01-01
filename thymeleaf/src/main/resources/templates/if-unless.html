@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive table-bordered table-striped text-center align-middle">
+                <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" th:if="${user.role} == 'ADMIN'">Update</a>
+                        <a class="btn btn-danger btn-sm" th:if="${user.role} == 'ADMIN'">Delete</a>
+                        <a class="btn btn-light btn-sm" th:if="${user.role} == 'ADMIN'">View</a>
+                        <a class="btn btn-dark btn-sm" th:if="${user.role} == 'USER'">I'm just User</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
